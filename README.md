@@ -1,37 +1,85 @@
-# Preparacion de datos
-Preprocesamiento de datos (limpieza de datos, manipulación de datos)
-- Valor faltante
-- Formato de datos 
-- Normalización de datos 
-- Clasificación de datos
-- Variables categóricas 
+📊 Preparación y Preprocesamiento de Datos
+El preprocesamiento de datos es una etapa fundamental en cualquier proyecto de análisis o ciencia de datos. Su objetivo es mejorar la calidad de los datos antes de aplicar técnicas estadísticas o modelos de aprendizaje automático.
 
-- **Cleaning → Formatting → Normalization → Encoding**
+🔹 Etapas del Preprocesamiento
+El flujo general aplicado en este proyecto sigue la siguiente secuencia:
+
+Cleaning → Formatting → Normalization → Encoding
+
+1. Cleaning (Limpieza de datos)
+Consiste en identificar y corregir problemas en los datos originales, tales como:
+
+Eliminación de valores nulos o vacíos.
+
+Eliminación de registros duplicados.
+
+Corrección de errores o inconsistencias.
+
+Eliminación de datos irrelevantes para el análisis.
+
+2. Formatting (Formateo de datos)
+Se enfoca en estandarizar la estructura y el tipo de los datos:
+
+Conversión de tipos de datos (fechas, números, texto).
+
+Estandarización de formatos (fechas, unidades de medida).
+
+Separación o combinación de campos de texto cuando es necesario.
+
+3. Normalization (Normalización de datos)
+Proceso de escalamiento de variables numéricas para mantener proporciones adecuadas entre los valores:
+
+Normalización en rango [0,1].
+
+Estandarización con media 0 y desviación estándar 1.
+
+Este paso es clave para algoritmos sensibles a la magnitud de los datos.
+
+4. Encoding (Codificación de variables categóricas)
+Transformación de variables categóricas en valores numéricos:
+
+Codificación binaria (ejemplo: F → 0, M → 1).
+
+One-Hot Encoding para variables con múltiples categorías.
 
 
-- Cleaning (Limpieza):	Eliminación de valores nulos, duplicados, errores o datos irrelevantes.
-- Formatting (Formateo):	Ajuste del tipo de dato, estructura o formato (por ejemplo, convertir fechas, separar texto, estandarizar unidades).
-- Normalization(Normalización):	Escalamiento o ajuste de valores numéricos para mantener proporciones (por ejemplo, convertir valores a rango 0–1 o a media 0 y desviación estándar 1).
-- Encoding (Codificación):	Conversión de variables categóricas en valores numéricos (por ejemplo, F→0, M→1 o mediante one-hot encoding).
+🧹 Limpieza de Valores Faltantes
 
-## LIMPIEZA DE VALORES FALTANTES
+🔸 Identificación de valores faltantes
+Los valores faltantes pueden presentarse como:
 
-Valores faltantes (NaN, en blanco)
+NaN
 
-¿Cómo tratar los datos faltantes?
+Campos en blanco
 
-Verificar con la fuente de recolección de datos
-1.	Evaluar la posibilidad si el recolector puede averiguar o recolectar el valor faltante
-2.	Eliminar los valores faltantes
-   
-•	Eliminar la variable
+Valores nulos
 
-•	Eliminar la entrada de datos (cuando son pocos)
+🔸 Estrategias para tratar valores faltantes
+Antes de tomar una decisión, se recomienda:
 
-4.	Reemplazar los valores faltantes
-•	Reemplazarlos con un promedio (de puntos de datos similares)
-•	Reemplazarlos según la frecuencia (modo más común, cuando no es número)
-•	Reemplazarlos con base en otras funciones (Conocimiento del recolector sobre experiencia)
+Verificar la fuente de recolección de datos.
 
-6.	Dejar los valores faltantes 
+Evaluar si es posible recuperar el valor faltante con el recolector de datos.
+
+Las estrategias aplicables incluyen:
+
+✔️ Eliminación de valores faltantes
+
+Eliminar la variable: cuando el porcentaje de valores faltantes es muy alto.
+
+Eliminar registros: cuando el número de filas afectadas es reducido.
+
+✔️ Reemplazo de valores faltantes
+
+Reemplazo por el promedio (para variables numéricas).
+
+Reemplazo por la moda o valor más frecuente (para variables categóricas).
+
+Reemplazo basado en criterios del dominio, apoyado en la experiencia del recolector o experto.
+
+✔️ Conservación de valores faltantes
+
+En algunos casos, los valores faltantes se conservan si aportan información relevante o si el modelo puede manejarlos directamente.
+
+
 
