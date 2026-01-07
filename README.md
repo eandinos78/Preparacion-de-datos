@@ -1,4 +1,5 @@
 📊 Preparación y Preprocesamiento de Datos
+
 El preprocesamiento de datos es una etapa fundamental en cualquier proyecto de análisis o ciencia de datos. Su objetivo es mejorar la calidad de los datos antes de aplicar técnicas estadísticas o modelos de aprendizaje automático.
 
 🔹 Etapas del Preprocesamiento
