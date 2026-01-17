@@ -89,6 +89,9 @@ En algunos casos, los valores faltantes se conservan si aportan información rel
 
 df.columnas
 
+- Tamaño del conjunto de datos
+df.shape
+
 -Tipos de los datos de cada variable 
 
 df.dtypes
