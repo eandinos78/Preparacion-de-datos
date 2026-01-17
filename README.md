@@ -90,6 +90,7 @@ En algunos casos, los valores faltantes se conservan si aportan información rel
 df.columnas
 
 - Tamaño del conjunto de datos
+
 df.shape
 
 -Tipos de los datos de cada variable 
@@ -104,13 +105,19 @@ df.describe(include="all") #Incluye todos
 
 
 - Resumen técnico del df
+
 df.info()
 
-## Correpcion de tipos de variables segun lo correspondiente
+# Limpieza 
 
-- Variables NUMÉRICAS 
-df["Edad"] = pd.to_numeric(df["Edad"], errors="coerce")
-df["Nota_Estimada_Parcial"] = pd.to_numeric(df["Nota_Estimada_Parcial"], errors="coerce")
-df["Nota_Estimada_Acumulativo"] = pd.to_numeric(df["Nota_Estimada_Acumulativo"], errors="coerce")
-df["Número_Repeticiones"] = pd.to_numeric(df["Número_Repeticiones"], errors="coerce")
+-Limpieza de valores faltantes
+
+import numpy as np
+
+df = df.replace("?", np.nan)
+
+-Deterninar los valores faltantes
+
+print(df.isnull().sum())
+
 
