@@ -103,4 +103,11 @@ df.describe(include="all") #Incluye todos
 - Resumen técnico del df
 df.info()
 
+## Correpcion de tipos de variables segun lo correspondiente
+
+- Variables NUMÉRICAS 
+df["Edad"] = pd.to_numeric(df["Edad"], errors="coerce")
+df["Nota_Estimada_Parcial"] = pd.to_numeric(df["Nota_Estimada_Parcial"], errors="coerce")
+df["Nota_Estimada_Acumulativo"] = pd.to_numeric(df["Nota_Estimada_Acumulativo"], errors="coerce")
+df["Número_Repeticiones"] = pd.to_numeric(df["Número_Repeticiones"], errors="coerce")
 
