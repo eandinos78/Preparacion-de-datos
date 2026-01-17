@@ -127,17 +127,26 @@ df = df.replace("?", np.nan)
 
 - Jornada
 
+- Conteo 
+
 conteo_jornada = df["Jornada_ Estudio"].value_counts()
 conteo_jornada
 
-for col in df.columns:
-    if df[col].isnull().sum() > 0:
-        print(f"\nColumna: {col}")
-        print(df[col].value_counts())
 
 calificacion = df["Nota_Estimada_Parcial"].value_counts()
 calificacion
 
+-Tabla de relacion jornada y Calificacion
+
+tabla = pd.crosstab(
+    df["Jornada_ Estudio"],
+    df["Nota_Estimada_Parcial"],
+    normalize="index"
+) * 100
+
+tabla
+
+- Grafica de relacion jornada y Calificacion
 
 import matplotlib.pyplot as plt
 import pandas as pd
