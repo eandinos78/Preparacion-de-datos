@@ -182,3 +182,64 @@ plt.legend(title="Rango de nota", bbox_to_anchor=(1.02, 1), loc="upper left")
 plt.tight_layout()
 plt.show()
 
+- Analisis estadistico
+
+-CDM
+py -m pip install scipy
+
+-nottebook
+from scipy.stats import chi2_contingency
+
+tabla = pd.crosstab(
+    df["Jornada_ Estudio"],
+    df["Nota_Estimada_Parcial"]
+)
+
+chi2, p_valor, dof, esperados = chi2_contingency(tabla)
+
+print("Chi-cuadrado:", round(chi2, 3))
+print("p-valor:", p_valor)
+
+
+- Grup By
+
+- Primero
+
+import numpy as np
+import pandas as pd
+
+mapa = {
+    "Entre 0 y 20": 10,
+    "Entre 21 y 40": 30.5,
+    "Entre 41 y 64": 52.5,
+    "Entre 65 y 80": 72.5,
+    "Entre 81 y 100": 90.5
+}
+
+df["Nota_Numerica"] = df["Nota_Estimada_Parcial"].map(mapa)
+
+
+df.groupby("Jornada_ Estudio")["Nota_Numerica"].mean().sort_values(ascending=False)
+
+
+- Segundo
+
+df.groupby("Jornada_ Estudio")["Nota_Numerica"].agg(["count","mean","median","std"])
+
+
+- Cluster
+
+py -m pip install scikit-learn
+
+from sklearn.cluster import KMeans
+
+X = df[["Nota_Numerica"]].dropna()
+
+kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
+df.loc[X.index, "cluster"] = kmeans.fit_predict(X)
+
+df.groupby("cluster")["Nota_Numerica"].agg(["count","mean","min","max"])
+
+
+
+  
