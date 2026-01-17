@@ -108,6 +108,12 @@ df.describe(include="all") #Incluye todos
 
 df.info()
 
+
+-Deterninar los valores faltantes
+
+print(df.isnull().sum())
+
+
 # Limpieza 
 
 -Limpieza de valores faltantes
@@ -116,8 +122,17 @@ import numpy as np
 
 df = df.replace("?", np.nan)
 
--Deterninar los valores faltantes
 
-print(df.isnull().sum())
+# Visualizacion de Datos 
+
+- Jornada
+
+conteo_jornada = df["Jornada_ Estudio"].value_counts()
+conteo_jornada
+
+for col in df.columns:
+    if df[col].isnull().sum() > 0:
+        print(f"\nColumna: {col}")
+        print(df[col].value_counts())
 
 
