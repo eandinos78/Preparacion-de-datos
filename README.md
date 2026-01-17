@@ -135,4 +135,41 @@ for col in df.columns:
         print(f"\nColumna: {col}")
         print(df[col].value_counts())
 
+calificacion = df["Nota_Estimada_Parcial"].value_counts()
+calificacion
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Tabla cruzada
+tabla = pd.crosstab(df["Jornada_ Estudio"], df["Nota_Estimada_Parcial"])
+tabla = tabla[calificacion.index]
+
+# Convertir a porcentaje por jornada (por fila)
+tabla_pct = tabla.div(tabla.sum(axis=1), axis=0) * 100
+
+# Gráfico
+ax = tabla_pct.plot(
+    kind="bar",
+    stacked=True,
+    figsize=(10,6)
+)
+
+ax.set_title("Distribución porcentual de la Nota Estimada Parcial por Jornada")
+ax.set_xlabel("Jornada")
+ax.set_ylabel("Porcentaje (%)")
+
+# Etiquetas de porcentaje
+for container in ax.containers:
+    ax.bar_label(
+        container,
+        fmt="%.1f%%",
+        label_type="center",
+        fontsize=9
+    )
+
+plt.legend(title="Rango de nota", bbox_to_anchor=(1.02, 1), loc="upper left")
+plt.tight_layout()
+plt.show()
 
