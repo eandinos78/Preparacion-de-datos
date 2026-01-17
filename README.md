@@ -85,18 +85,22 @@ En algunos casos, los valores faltantes se conservan si aportan información rel
 
 # Informacion general de los datos 
 
--Ver Nombre de las columnas 
+-Nombre de las columnas 
 
 df.columnas
 
--Ver los tipos de los datos de cada variable 
+-Tipos de los datos de cada variable 
 
 df.dtypes
 
--Ver la estadística básica 
+-Estadística básica 
 
-df. describe() #solo numérico 
+df. describe() #Solo numérico 
 
 df.describe(include="all") #Incluye todos 
+
+
+- Resumen técnico del df
+df.info()
 
 
